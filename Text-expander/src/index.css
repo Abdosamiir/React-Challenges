@@ -1,0 +1,15 @@
+* {
+  padding: 5px;
+  margin: 5px;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.box {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  background-color: #f7f7f7;
+}
