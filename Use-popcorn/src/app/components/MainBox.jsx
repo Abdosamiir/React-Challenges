@@ -1,3 +1,3 @@
-export function Main({ children }) {
+export function MainBox({ children }) {
   return <main className="main">{children}</main>;
 }

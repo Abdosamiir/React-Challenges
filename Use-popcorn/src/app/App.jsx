@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavBar } from "./components/NavBar";
 import { Search } from "./components/Search";
 import { NumResults } from "./components/NumResults";
-import { Main } from "./components/Main";
+import { MainBox } from "./components/MainBox";
 import { Box } from "./components/Box";
 import { MovieList } from "./components/MovieList";
 import { WatchedSummary } from "./components/WatchedSummary";
@@ -66,7 +66,7 @@ export default function App() {
         <NumResults movies={movies} />
       </NavBar>
 
-      <Main>
+      <MainBox>
         <Box>
           <MovieList movies={movies} />
         </Box>
@@ -75,7 +75,7 @@ export default function App() {
           <WatchedSummary watched={watched} />
           <WatchedMoviesList watched={watched} />
         </Box>
-      </Main>
+      </MainBox>
     </>
   );
 }
