@@ -1,9 +1,14 @@
 import { useState } from "react";
+import { Item } from "./App";
 
-function Form({ onAddItems }) {
+type Prop = {
+  onAddItems: (a: Item) => void;
+};
+
+function Form({ onAddItems }: Prop) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
-  function handelSubmit(e) {
+  function handelSubmit(e: any) {
     e.preventDefault();
     if (!description) return;
     const newItem = { description, quantity, id: Date.now(), packed: false };

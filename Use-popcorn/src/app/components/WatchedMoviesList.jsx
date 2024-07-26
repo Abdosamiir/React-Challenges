@@ -1,4 +1,4 @@
-import { WatchedMovie } from "./App";
+import { WatchedMovie } from "./WatchedMovie";
 
 export function WatchedMoviesList({ watched }) {
   return (

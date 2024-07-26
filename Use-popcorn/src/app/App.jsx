@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { NavBar } from "./NavBar";
-import { Search } from "./Search";
-import { NumResults } from "./NumResults";
-import { Main } from "./Main";
-import { Box } from "./Box";
-import { MovieList } from "./MovieList";
-import { WatchedSummary } from "./WatchedSummary";
-import { WatchedMoviesList } from "./WatchedMoviesList";
+import { NavBar } from "./components/NavBar";
+import { Search } from "./components/Search";
+import { NumResults } from "./components/NumResults";
+import { Main } from "./components/Main";
+import { Box } from "./components/Box";
+import { MovieList } from "./components/MovieList";
+import { WatchedSummary } from "./components/WatchedSummary";
+import { WatchedMoviesList } from "./components/WatchedMoviesList";
 
 const tempMovieData = [
   {
@@ -55,9 +55,6 @@ const tempWatchedData = [
   },
 ];
 
-export const average = (arr) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
-
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
@@ -80,50 +77,5 @@ export default function App() {
         </Box>
       </Main>
     </>
-  );
-}
-export function Logo() {
-  return (
-    <div className="logo">
-      <span role="img">🍿</span>
-      <h1>usePopcorn</h1>
-    </div>
-  );
-}
-export function Movie({ movie }) {
-  return (
-    <li>
-      <img src={movie.Poster} alt={`${movie.Title} poster`} />
-      <h3>{movie.Title}</h3>
-      <div>
-        <p>
-          <span>🗓</span>
-          <span>{movie.Year}</span>
-        </p>
-      </div>
-    </li>
-  );
-}
-
-export function WatchedMovie({ movie }) {
-  return (
-    <li>
-      <img src={movie.Poster} alt={`${movie.Title} poster`} />
-      <h3>{movie.Title}</h3>
-      <div>
-        <p>
-          <span>⭐️</span>
-          <span>{movie.imdbRating}</span>
-        </p>
-        <p>
-          <span>🌟</span>
-          <span>{movie.userRating}</span>
-        </p>
-        <p>
-          <span>⏳</span>
-          <span>{movie.runtime} min</span>
-        </p>
-      </div>
-    </li>
   );
 }

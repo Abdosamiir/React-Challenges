@@ -8,18 +8,25 @@ import { useState } from "react";
 //   { id: 2, description: "Socks", quantity: 12, packed: true },
 // ];
 
-function App() {
-  const [items, setItems] = useState([]);
+export type Item = {
+  id: number;
+  description: string;
+  quantity: number;
+  packed: boolean;
+};
 
-  function handleAddItems(item) {
+function App() {
+  const [items, setItems] = useState<Item[]>([]);
+
+  function handleAddItems(item: Item) {
     setItems((items) => [...items, item]);
   }
 
-  function handleDeleteItem(id) {
+  function handleDeleteItem(id: number) {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
-  function handleToggleItem(id) {
+  function handleToggleItem(id: number) {
     setItems((items) =>
       items.map((item) =>
         item.id === id ? { ...item, packed: !item.packed } : item
