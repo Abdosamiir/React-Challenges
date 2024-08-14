@@ -81,19 +81,20 @@ function CreateOrder() {
               </p>
             )}
           </div>
-          {/* {!position.latitude && !position.longitude && (  )} */}
-          <span className="absolute z-50 right-1">
-            <Button
-              disabled={isLoadingAddress}
-              type="small"
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch(fetchAddress());
-              }}
-            >
-              get position
-            </Button>
-          </span>
+          {!position.latitude && !position.longitude && (
+            <span className="absolute z-50 right-1 top-[3px] md:right-1 md:top-[3px]">
+              <Button
+                disabled={isLoadingAddress}
+                type="small"
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(fetchAddress());
+                }}
+              >
+                get position
+              </Button>
+            </span>
+          )}
         </div>
         <div className="mb-12 flex items-center gap-5">
           <input
@@ -111,6 +112,15 @@ function CreateOrder() {
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
+          <input
+            type="hidden"
+            name="position"
+            value={
+              position.latitude && position.longitude
+                ? `${position.latitude},${position.longitude}`
+                : ""
+            }
+          />
           <Button disabled={isSubmitting || isLoadingAddress} type="primary">
             {isSubmitting
               ? "placing order ..."
