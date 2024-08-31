@@ -1,16 +1,22 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
-import FormRow from "../../ui/FormRow";
+
 import Input from "../../ui/Input";
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
 import FileInput from "../../ui/FileInput";
 import Textarea from "../../ui/Textarea";
+import FormRow from "../../ui/FormRow";
+
 import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
 
 function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
+  const { isCreating, createCabin } = useCreateCabin();
+  const { isEditing, editCabin } = useEditCabin();
+  const isWorking = isCreating || isEditing;
+
   const { id: editId, ...editValues } = cabinToEdit;
   const isEditSession = Boolean(editId);
 
@@ -19,12 +25,9 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   });
   const { errors } = formState;
 
-  const { createCabin, isCreating } = useCreateCabin();
-  const { editCabin, isEditing } = useEditCabin();
-  const isWorking = isCreating || isEditing;
-
   function onSubmit(data) {
     const image = typeof data.image === "string" ? data.image : data.image[0];
+
     if (isEditSession)
       editCabin(
         { newCabinData: { ...data, image }, id: editId },
@@ -46,50 +49,52 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
         }
       );
   }
+
   function onError(errors) {
     // console.log(errors);
   }
+
   return (
     <Form
       onSubmit={handleSubmit(onSubmit, onError)}
       type={onCloseModal ? "modal" : "regular"}
     >
-      <FormRow label="Cabin Name" error={errors?.name?.message}>
+      <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
           type="text"
           id="name"
           disabled={isWorking}
           {...register("name", {
-            required: "This filed is required",
+            required: "This field is required",
           })}
         />
       </FormRow>
 
-      <FormRow label="Maximum Capacity" error={errors?.maxCapacity?.message}>
+      <FormRow label="Maximum capacity" error={errors?.maxCapacity?.message}>
         <Input
           type="number"
           id="maxCapacity"
           disabled={isWorking}
           {...register("maxCapacity", {
-            required: "This filed is required",
+            required: "This field is required",
             min: {
               value: 1,
-              message: "capacity should be at least 1",
+              message: "Capacity should be at least 1",
             },
           })}
         />
       </FormRow>
 
-      <FormRow label="Regular Price" error={errors?.regularPrice?.message}>
+      <FormRow label="Regular price" error={errors?.regularPrice?.message}>
         <Input
           type="number"
           id="regularPrice"
           disabled={isWorking}
           {...register("regularPrice", {
-            required: "This filed is required",
+            required: "This field is required",
             min: {
               value: 1,
-              message: "capacity should be at least 1",
+              message: "Capacity should be at least 1",
             },
           })}
         />
@@ -110,24 +115,27 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
         />
       </FormRow>
 
-      <FormRow label="Description" error={errors?.description?.message}>
+      <FormRow
+        label="Description for website"
+        error={errors?.description?.message}
+      >
         <Textarea
           type="number"
-          disabled={isWorking}
           id="description"
           defaultValue=""
+          disabled={isWorking}
           {...register("description", {
-            required: "This filed is required",
+            required: "This field is required",
           })}
         />
       </FormRow>
 
-      <FormRow label="Cabin Photo">
+      <FormRow label="Cabin photo">
         <FileInput
           id="image"
           accept="image/*"
           {...register("image", {
-            required: isEditSession ? false : "This filed is required",
+            required: isEditSession ? false : "This field is required",
           })}
         />
       </FormRow>
