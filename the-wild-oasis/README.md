@@ -1,3 +1,11 @@
+# The Wild Oasis first project i built with React query and supabase.
+
+## to log in use the following email and password
+
+### email: test@test.com
+
+### password: 12345678
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
