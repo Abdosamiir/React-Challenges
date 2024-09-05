@@ -3,9 +3,9 @@
 import { average } from "../utils/utils";
 
 export function WatchedSummary({ watched }) {
-  const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
-  const avgUserRating = average(watched.map((movie) => movie.userRating));
-  const avgRuntime = average(watched.map((movie) => movie.runtime));
+  const avgImdbRating = average(watched?.map((movie) => movie.imdbRating));
+  const avgUserRating = average(watched?.map((movie) => movie.userRating));
+  const avgRuntime = average(watched?.map((movie) => movie.runtime));
 
   return (
     <div className="summary">
@@ -13,15 +13,15 @@ export function WatchedSummary({ watched }) {
       <div>
         <p>
           <span>#️⃣</span>
-          <span>{watched.length} movies</span>
+          <span>{watched?.length} movies</span>
         </p>
         <p>
           <span>⭐️</span>
-          <span>{avgImdbRating.toFixed(2)}</span>
+          <span>{avgImdbRating?.toFixed(2)}</span>
         </p>
         <p>
           <span>🌟</span>
-          <span>{avgUserRating.toFixed(2)}</span>
+          <span>{avgUserRating?.toFixed(2)}</span>
         </p>
         <p>
           <span>⏳</span>
