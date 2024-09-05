@@ -6,6 +6,11 @@ export default function PackingList({
   onDeleteItem,
   onToggleItem,
   onClearList,
+}: {
+  items: Array<{ id: number; description: string; packed: boolean }>;
+  onDeleteItem: (id: number) => void;
+  onToggleItem: (id: number) => void;
+  onClearList: () => void;
 }) {
   const [sortBy, setSortBy] = useState("input");
 
@@ -26,9 +31,9 @@ export default function PackingList({
   return (
     <div className="list">
       <ul>
-        {sortedItems.map((item) => (
+        {sortedItems?.map((item) => (
           <Item
-            item={item}
+            item={{ ...item, quantity: 1 }}
             onDeleteItem={onDeleteItem}
             onToggleItem={onToggleItem}
             key={item.id}

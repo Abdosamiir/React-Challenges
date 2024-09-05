@@ -1,4 +1,4 @@
-export default function Stats({ items }) {
+export default function Stats({ items }: { items: { packed: boolean }[] }) {
   if (!items.length)
     return (
       <p className="stats">
