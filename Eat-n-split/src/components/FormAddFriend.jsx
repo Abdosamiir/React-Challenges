@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Button } from "./App";
 
@@ -30,7 +31,6 @@ export default function FormAddFriend({ onAddFriend }) {
       <input
         type="text"
         value={image}
-        on
         onChange={(e) => setImage(e.target.value)}
       />
       <Button>Add</Button>

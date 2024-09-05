@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Button } from "./App";
 
 export default function FriendsList({ friends, onSelection, selectedFriend }) {

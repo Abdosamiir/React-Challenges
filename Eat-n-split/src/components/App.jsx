@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import FriendsList from "./FriendsList";
 import FormAddFriend from "./FormAddFriend";
