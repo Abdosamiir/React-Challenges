@@ -1,7 +1,7 @@
 import Form from "./app/Form";
 import Logo from "./app/Logo";
 import PackingList from "./app/PackingList";
-import Stats from "./Stats";
+import Stats from "./app/Stats";
 import { useState } from "react";
 // const initialItems = [
 //   { id: 1, description: "Passports", quantity: 2, packed: false },
