@@ -1,4 +1,4 @@
-// import { Logo } from "./App";
+/* eslint-disable react/prop-types */
 
 export function NavBar({ children }) {
   return (

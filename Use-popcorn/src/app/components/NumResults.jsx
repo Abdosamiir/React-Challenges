@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 export function NumResults({ movies }) {
   return (
     <p className="num-results">

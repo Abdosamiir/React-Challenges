@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { Movie } from "./Movie";
 export function MovieList({ movies, onSelectMovie }) {
   return (

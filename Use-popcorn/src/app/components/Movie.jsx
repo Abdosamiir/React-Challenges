@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 export function Movie({ movie, onSelectMovie }) {
   return (
     <li onClick={() => onSelectMovie(movie.imdbID)}>

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 export function WatchedMovie({ movie, onDeleteWatched }) {
   return (
     <li>

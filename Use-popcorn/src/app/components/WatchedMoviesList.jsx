@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { WatchedMovie } from "./WatchedMovie";
 
 export function WatchedMoviesList({ watched, onDeleteWatched }) {

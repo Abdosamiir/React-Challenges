@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { useEffect, useRef } from "react";
 
 export function Search({ query, setQuery }) {
