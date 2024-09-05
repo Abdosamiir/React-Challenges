@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
 import { KEY } from "../utils/utils";
 import StarRating from "./StarRating";
@@ -31,7 +32,7 @@ export function MovieDetails({
     imdbRating,
     Plot: plot,
     Actor: actor,
-    Released: released,
+    // Released: released,
     Director: director,
     Genre: genre,
   } = movie;
@@ -96,15 +97,11 @@ export function MovieDetails({
       ) : (
         <>
           <header>
-            <button className="btn-back" onClick={onCloseMovie}>
-              &larr;
-            </button>
+            <button className="btn-back" onClick={onCloseMovie}></button>
             <img src={poster} alt={`Poster of ${movie} movie`} />
             <div className="details-overview">
               <h2>{title}</h2>
-              <p>
-                {released} &bull; {runtime}
-              </p>
+              <p></p>
               <p>{genre}</p>
               <p>
                 <span>⭐️</span>
