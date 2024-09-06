@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Timer from "./Timer";
 import NextButton from "./NextButton";
 

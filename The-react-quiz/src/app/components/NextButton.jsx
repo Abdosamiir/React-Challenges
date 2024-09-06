@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 function NextButton({ dispatch, answer, index, numQuestions }) {
   if (answer === null) return null;
   if (index < numQuestions - 1)
