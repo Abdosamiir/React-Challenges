@@ -1,6 +1,6 @@
-import Logo from "./components/Logo";
-import Navigaton from "./components/Navigaton";
-
+import Logo from "@/app/_components/Logo";
+import Navigaton from "@/app/_components/Navigaton";
+import "@/app/_styles/globals.css";
 export const metadata = {
   title: "The Wild Oasis",
 };
@@ -8,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-primary-950 text-primary-50 min-h-screen">
         <header>
           <Logo />
           <Navigaton />
