@@ -20,10 +20,16 @@ export default function App() {
   const [error, setError] = useState("");
   const [SelectedId, setSelectedId] = useState(null);
   // const [watched, setWatched] = useState([]);
+  // const [watched, setWatched] = useState(function () {
+  //   const storedValue = localStorage.getItem("watched");
+  //   return JSON.parse(storedValue);
+  // });
+
   const [watched, setWatched] = useState(function () {
     const storedValue = localStorage.getItem("watched");
-    return JSON.parse(storedValue);
+    return storedValue ? JSON.parse(storedValue) : [];
   });
+
   function handelSelectedMovie(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
   }
@@ -33,8 +39,9 @@ export default function App() {
   function handleAddWatched(movie) {
     setWatched((watched) => [...watched, movie]);
   }
+
   function handelDeleteWatched(id) {
-    setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
+    setWatched((watched) => watched?.filter((movie) => movie.imdbID !== id));
   }
 
   useEffect(

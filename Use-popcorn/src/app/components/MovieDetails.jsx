@@ -21,21 +21,32 @@ export function MovieDetails({
     [userRating]
   );
   const isWatched = watched?.map((movie) => movie.imdbID).includes(selectedId);
-  const watchedUserRating = watched.find(
+  const watchedUserRating = watched?.find(
     (movie) => movie.imdbID === selectedId
   )?.userRating;
+  // const {
+  //   Title: title,
+  //   Year: year,
+  //   Poster: poster,
+  //   Runtime: runtime,
+  //   imdbRating,
+  //   Plot: plot,
+  //   Actor: actor,
+  //   // Released: released,
+  //   Director: director,
+  //   Genre: genre,
+  // } = movie;
   const {
-    Title: title,
-    Year: year,
-    Poster: poster,
-    Runtime: runtime,
-    imdbRating,
-    Plot: plot,
-    Actor: actor,
-    // Released: released,
-    Director: director,
-    Genre: genre,
-  } = movie;
+    Title: title = "",
+    Year: year = "",
+    Poster: poster = "",
+    Runtime: runtime = "0 min",
+    imdbRating = 0,
+    Plot: plot = "",
+    Actor: actor = "",
+    Director: director = "",
+    Genre: genre = "",
+  } = movie || {};
   function handelAdd() {
     const newWatchedMovie = {
       imdbID: selectedId,
