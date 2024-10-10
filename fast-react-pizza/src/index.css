@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-size: 100%;
+}
+
 @layer components {
   .input {
     @apply rounded-full px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 border border-stone-200 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3;
@@ -44,5 +48,41 @@
         50% 50%,
         100% 100%;
     }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 95%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 60%;
   }
 }
