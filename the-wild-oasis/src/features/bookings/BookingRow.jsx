@@ -59,7 +59,7 @@ function BookingRow({
     totalPrice,
     status,
     guests: { fullName: guestName, email },
-    cabins: { name: cabinName },
+    cabins: name,
   },
 }) {
   const navigate = useNavigate();
@@ -74,7 +74,7 @@ function BookingRow({
   return (
     <Table.Row>
       <Modal>
-        <Cabin>{cabinName}</Cabin>
+        <Cabin>{name}</Cabin>
 
         <Stacked>
           <span>{guestName}</span>

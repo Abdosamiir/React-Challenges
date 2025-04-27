@@ -13,7 +13,10 @@ const StyledFilter = styled.div`
   gap: 0.4rem;
 `;
 
-const FilterButton = styled.button`
+const FilterButton = styled.button.attrs(() => ({
+  // Remove 'active' from being passed to the DOM
+  active: undefined,
+}))`
   background-color: var(--color-grey-0);
   border: none;
 
