@@ -3,6 +3,11 @@ import { useUser } from "../features/authentication/useUser";
 import Spinner from "./Spinner";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
+ProtectedRoute.propTypes = {
+  children: PropTypes.node,
+};
 
 const FullPage = styled.div`
   height: 100vh;
